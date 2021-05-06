@@ -22,7 +22,7 @@ export class DashboardComponent {
     isbn: '222',
     title: 'jQuery',
     description: 'sehr altes Buch',
-    rating: 1
+    rating: 0
   }];
 
   constructor() { }
