@@ -23,20 +23,26 @@ export class DashboardComponent {
     isbn: '222',
     title: 'jQuery',
     description: 'sehr altes Buch',
-    rating: 0
+    rating: 1
   }];
 
-  constructor(br: BookRatingService) {
+  constructor(private br: BookRatingService) {
 
   }
 
   doRateDown(book: Book): void {
-    console.table(book);
+    const ratedBook = this.br.rateDown(book);
+    this.updateAndSort(ratedBook);
   }
 
   doRateUp(book: Book): void {
-    console.table(book);
+    const ratedBook = this.br.rateUp(book);
+    this.updateAndSort(ratedBook);
   }
 
-
+  updateAndSort(ratedBook: Book): void {
+    this.books = this.books
+      .map(b => b.isbn === ratedBook.isbn ? ratedBook : b)
+      .sort((a, b) => b.rating - a.rating);
+  }
 }
