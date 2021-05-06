@@ -27,4 +27,13 @@ export class DashboardComponent {
 
   constructor() { }
 
+  doRateDown(book: Book): void {
+    console.table(book);
+  }
+
+  doRateUp(book: Book): void {
+    console.table(book);
+  }
+
+
 }
