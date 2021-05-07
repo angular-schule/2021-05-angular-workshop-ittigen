@@ -26,7 +26,7 @@ export class DashboardComponent {
     rating: 1
   }];
 
-  constructor(private br: BookRatingService) {
+  constructor(public br: BookRatingService) {
 
   }
 

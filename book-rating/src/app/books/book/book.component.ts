@@ -17,6 +17,12 @@ export class BookComponent {
   @Input()
   book: Book;
 
+  @Input()
+  isRateDownEnabled = (book: Book) => true
+
+  @Input()
+  isRateUpEnabled = (book: Book) => true
+
   doRateDown(): void {
     this.rateDown.emit(this.book);
   }

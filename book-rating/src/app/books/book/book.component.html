@@ -10,9 +10,9 @@
     </div>
     <p>{{ book.description }}</p>
 
-    <button [disabled]="true" class="btn btn-primary mr-2" (click)="doRateDown()">-1</button>
+    <button [disabled]="!isRateDownEnabled(book)" class="btn btn-primary mr-2" (click)="doRateDown()">-1</button>
     <!-- <button class="btn btn-primary mr-2" (click)="rateDown.emit(book)">-1</button> -->
 
-    <button class="btn btn-primary" (click)="doRateUp()">+1</button>
+    <button [disabled]="!isRateUpEnabled(book)" class="btn btn-primary" (click)="doRateUp()">+1</button>
   </div>
 </div>
