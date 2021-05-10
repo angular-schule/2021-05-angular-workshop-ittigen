@@ -14,6 +14,8 @@
     <!-- <button class="btn btn-primary mr-2" (click)="rateDown.emit(book)">-1</button> -->
 
     <button [disabled]="!isRateUpEnabled(book)" class="btn btn-primary" (click)="doRateUp()">+1</button>
+
+    <a [routerLink]="['/books/', book.isbn]" class="btn btn-secondary ml-2">Details</a>
   </div>
 </div>
 
