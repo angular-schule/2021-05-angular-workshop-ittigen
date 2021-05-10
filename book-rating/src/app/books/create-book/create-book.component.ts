@@ -21,7 +21,8 @@ export class CreateBookComponent {
   }
 
   hasError(name: keyof Book, code: string): boolean {
-    return true;
+    const control = this.bookForm.get(name);
+    return control.touched && control.hasError(code);
   }
 
 }
