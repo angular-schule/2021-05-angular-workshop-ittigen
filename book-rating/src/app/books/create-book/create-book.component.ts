@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Book } from '../shared/book';
 
 @Component({
   selector: 'br-create-book',
@@ -13,5 +14,14 @@ export class CreateBookComponent {
     title: new FormControl('', Validators.required),
     description: new FormControl('')
   });
+
+  isInvalid(name: keyof Book): boolean {
+    const control = this.bookForm.get(name);
+    return control.touched && control.invalid;
+  }
+
+  hasError(name: keyof Book, code: string): boolean {
+    return true;
+  }
 
 }
