@@ -1,34 +1,22 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { Book } from '../shared/book';
 import { BookRatingService } from '../shared/book-rating.service';
+import { BookStoreService } from '../shared/book-store.service';
 
 @Component({
   selector: 'br-dashboard',
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush // ACHTUNG BUG, sobald wir AJAX einsetzen
+  // changeDetection: ChangeDetectionStrategy.OnPush // ACHTUNG BUG, sobald wir AJAX einsetzen
 })
 export class DashboardComponent {
 
-  books: Book[] = [{
-    isbn: '000',
-    title: 'Angular',
-    description: 'Tolles Buch',
-    rating: 5
-  }, {
-    isbn: '111',
-    title: 'React',
-    description: 'Auch gutes Buch',
-    rating: 3
-  }, {
-    isbn: '222',
-    title: 'jQuery',
-    description: 'sehr altes Buch',
-    rating: 1
-  }];
+  books: Book[] = [];
 
-  constructor(public br: BookRatingService) {
+  constructor(public br: BookRatingService,
+              bs: BookStoreService) {
 
+      bs.getAllBooks().subscribe(books => this.books = books);
   }
 
   doRateDown(book: Book): void {
