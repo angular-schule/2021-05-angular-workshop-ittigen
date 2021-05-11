@@ -34,7 +34,7 @@ export class CreatingComponent implements OnInit {
     // const observable = of('😎', '😍', '😇');
     const observable = new Observable(subscriber => {
       subscriber.next('😎');
-      subscriber.error('FEHLER');
+      // subscriber.error('FEHLER');
 
       const x = setTimeout(() => subscriber.next('🤓'), 1000);
       const y = setTimeout(() => subscriber.next('👿'), 2000);
