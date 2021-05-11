@@ -14,6 +14,10 @@ export class GameScoreComponent implements OnInit {
   currentScore = 0;
   finalScore: number;
 
+  // TODO
+  currentScore$ = null;
+  finalScore$ = null;
+
   ngOnInit() {
 
     /**
