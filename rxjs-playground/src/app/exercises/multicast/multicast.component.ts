@@ -20,8 +20,11 @@ export class MulticastComponent implements OnInit {
 
   ngOnInit() {
     /******************************/
+    this.measureValues$ = this.mvs.getValues().pipe(
+      share()
+    );
 
-    
+
     /******************************/
   }
 
