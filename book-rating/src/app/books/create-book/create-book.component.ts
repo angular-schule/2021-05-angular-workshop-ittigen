@@ -34,9 +34,13 @@ export class CreateBookComponent {
       ...this.bookForm.value,
       rating: 1
     };
+    // 1
+    // debugger
 
     this.create.emit(newBook);
 
+    // 3
+    // debugger
     this.bookForm.reset();
 
   }

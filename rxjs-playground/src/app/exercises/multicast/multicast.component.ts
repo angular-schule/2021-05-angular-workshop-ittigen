@@ -10,21 +10,24 @@ import { ExerciseService } from '../exercise.service';
   templateUrl: './multicast.component.html',
 })
 export class MulticastComponent implements OnInit {
-b
+
   listeners = [];
   logStream$ = new ReplaySubject<string>();
 
-  measureValues$: Observable<number>; // später: Subject<number>;
+  measureValues$: Subject<number>; // später: Subject<number>;
 
   constructor(private mvs: MeasureValuesService, private es: ExerciseService) { }
 
   ngOnInit() {
     /******************************/
-    this.measureValues$ = this.mvs.getValues().pipe(
-      // share()
-      shareReplay(1)
-    );
+    // this.measureValues$ = this.mvs.getValues().pipe(
+    //   // share()
+    //   shareReplay(1)
+    // );
 
+    // this.measureValues$ = new Subject<number>();
+    this.measureValues$ = new ReplaySubject<number>(1);
+    this.mvs.getValues().subscribe(this.measureValues$);
 
     /******************************/
   }

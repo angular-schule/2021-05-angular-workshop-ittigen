@@ -41,6 +41,8 @@ export class DashboardComponent {
   }
 
   addBook(newBook: Book): void {
+    // 2
+    // debugger
     this.books = [...this.books, newBook];
   }
 }
