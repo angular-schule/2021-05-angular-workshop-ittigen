@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable, of, from, timer, interval, ReplaySubject } from 'rxjs';
+import { Observable, of, from, timer, interval, ReplaySubject, Observer } from 'rxjs';
 import { map, filter } from 'rxjs/operators';
 
 @Component({
@@ -23,11 +23,15 @@ export class CreatingComponent implements OnInit {
 
     /******************************/
 
-    of('😎', '😍', '😇').subscribe(
-      e => this.log(e),
-      err => this.log('ERROR: ' + err),
-      () => this.log('COMPLETE')
-    )
+    // Observer<string>
+    const observer = {
+      next: e => this.log(e),
+      error: err => this.log('ERROR: ' + err),
+      complete: () => this.log('COMPLETE')
+    }
+
+    // observable
+    of('😎', '😍', '😇').subscribe(observer);
 
 
     /******************************/
