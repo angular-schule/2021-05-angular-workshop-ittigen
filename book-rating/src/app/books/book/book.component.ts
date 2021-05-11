@@ -33,6 +33,6 @@ export class BookComponent {
   }
 
   log() {
-    console.log('CD getriggert', Date.now());
+    // console.log('CD getriggert', Date.now());
   }
 }
