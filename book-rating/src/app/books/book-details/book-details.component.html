@@ -1,6 +1,9 @@
-<h1>{{ book$ | async | async | json }}</h1>
+<h1>
+  {{ (book$ | async)?.isbn }}:
+  {{ (book$ | async)?.title }}
+</h1>
 
-<p>book-details works!</p>
+<p>{{ (book$ | async)?.description }}</p>
 
 <button class="btn btn-primary"
   routerLink="/books/9783864907845">Go to GraphQL</button>
