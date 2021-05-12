@@ -1,16 +1,22 @@
-<h1>
-  {{ (book$ | async)?.isbn }}:
-  {{ (book$ | async)?.title }}
-</h1>
+<ng-container *ngIf="book$ | async as book">
 
-<p *ngIf="showDetails">
-  <strong>Details</strong><br>
-  {{ (book$ | async)?.description }}
-</p>
+  <h1>{{ book.isbn }}: {{ book.title }}</h1>
+
+  <p *ngIf="showDetails">
+    <strong>Details</strong><br>
+    {{ book.description }}
+  </p>
+
+</ng-container>
 
 <button (click)="showDetails = !showDetails">
   Toggle Details
 </button>
 
+<hr>
+
 <button class="btn btn-primary"
   routerLink="/books/9783864907845">Go to GraphQL</button>
+<br>
+<button class="btn btn-primary"
+  routerLink="/books/404">Go to 404</button>
