@@ -1,4 +1,5 @@
-import { Action, createReducer, on } from '@ngrx/store';
+import { createReducer, on } from '@ngrx/store';
+
 import { Book } from '../shared/book';
 import * as BookActions from './book.actions';
 
@@ -29,7 +30,10 @@ export const reducer = createReducer(
     books
   })),
 
-  on(BookActions.loadBooksFailure, (state, action) => state),
-
+  on(BookActions.loadBooksFailure, (state, action) => ({
+    ...state,
+    loading: false,
+    books: []
+  }))
 );
 
