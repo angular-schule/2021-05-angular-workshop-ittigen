@@ -6,17 +6,14 @@ import { BookStoreService } from '../shared/book-store.service';
 @Component({
   selector: 'br-dashboard',
   templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.scss'],
+  styleUrls: ['./dashboard.component.scss']
   // changeDetection: ChangeDetectionStrategy.OnPush // ACHTUNG BUG, sobald wir AJAX einsetzen
 })
 export class DashboardComponent {
-
   books: Book[] = [];
 
-  constructor(public br: BookRatingService,
-              bs: BookStoreService) {
-
-      bs.getAllBooks().subscribe(books => this.books = books);
+  constructor(public br: BookRatingService, bs: BookStoreService) {
+    bs.getAllBooks().subscribe(books => (this.books = books));
   }
 
   doRateDown(book: Book): void {
@@ -36,7 +33,7 @@ export class DashboardComponent {
 
   updateAndSort(ratedBook: Book): void {
     this.books = this.books
-      .map(b => b.isbn === ratedBook.isbn ? ratedBook : b)
+      .map(b => (b.isbn === ratedBook.isbn ? ratedBook : b))
       .sort((a, b) => b.rating - a.rating);
   }
 

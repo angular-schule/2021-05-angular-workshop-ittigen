@@ -8,7 +8,6 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { CreateBookComponent } from './create-book/create-book.component';
 import { BookDetailsComponent } from './book-details/book-details.component';
 
-
 @NgModule({
   declarations: [
     DashboardComponent,
@@ -16,13 +15,7 @@ import { BookDetailsComponent } from './book-details/book-details.component';
     CreateBookComponent,
     BookDetailsComponent
   ],
-  imports: [
-    CommonModule,
-    BooksRoutingModule,
-    ReactiveFormsModule
-  ],
-  exports: [
-    DashboardComponent
-  ]
+  imports: [CommonModule, BooksRoutingModule, ReactiveFormsModule],
+  exports: [DashboardComponent]
 })
-export class BooksModule { }
+export class BooksModule {}

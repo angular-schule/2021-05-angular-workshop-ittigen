@@ -1,17 +1,14 @@
-<br-create-book
-  (create)="addBook($event)"
-></br-create-book>
+<br-create-book (create)="addBook($event)"></br-create-book>
 
 <br-book
- *ngFor="let b of books"
- [book]="b"
- (rateDown)="doRateDown($event)"
- (rateUp)="doRateUp($event)"
- [isRateDownEnabled]="br.isRateDownEnabled"
- [isRateUpEnabled]="br.isRateUpEnabled"
+  *ngFor="let b of books"
+  [book]="b"
+  (rateDown)="doRateDown($event)"
+  (rateUp)="doRateUp($event)"
+  [isRateDownEnabled]="br.isRateDownEnabled"
+  [isRateUpEnabled]="br.isRateUpEnabled"
 ></br-book>
 
-<hr>
-
+<hr />
 
 Anzahl der Bücher: {{ books.length }}

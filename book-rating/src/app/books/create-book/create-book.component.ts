@@ -8,7 +8,6 @@ import { Book } from '../shared/book';
   styleUrls: ['./create-book.component.scss']
 })
 export class CreateBookComponent {
-
   @Output()
   create = new EventEmitter<Book>();
 
@@ -29,7 +28,6 @@ export class CreateBookComponent {
   }
 
   createBook(): void {
-
     const newBook = {
       ...this.bookForm.value,
       rating: 1
@@ -42,7 +40,5 @@ export class CreateBookComponent {
     // 3
     // debugger
     this.bookForm.reset();
-
   }
-
 }

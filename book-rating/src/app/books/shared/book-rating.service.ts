@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Book } from './book';
 
-
 const minRating = 1;
 const maxRating = 5;
 
@@ -9,8 +8,6 @@ const maxRating = 5;
   providedIn: 'root'
 })
 export class BookRatingService {
-
-
   rateUp(book: Book): Book {
     return {
       ...book,

@@ -2,7 +2,6 @@ import { Book } from './book';
 import { BookRatingService } from './book-rating.service';
 
 describe('BookRatingService [JIRA-12121]', () => {
-
   let service: BookRatingService;
   let book: Book;
 

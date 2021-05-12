@@ -8,9 +8,8 @@ describe('BookComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ BookComponent ]
-    })
-    .compileComponents();
+      declarations: [BookComponent]
+    }).compileComponents();
   });
 
   beforeEach(() => {
@@ -21,7 +20,7 @@ describe('BookComponent', () => {
       title: 'Test',
       description: '',
       rating: 5
-    }
+    };
     fixture.detectChanges();
   });
 

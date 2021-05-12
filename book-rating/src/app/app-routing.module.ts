@@ -3,15 +3,20 @@ import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   // { path: '', pathMatch: 'full', redirectTo: 'books' }.
-  { path: 'books', loadChildren: () => import('./books/books.module').then(m => m.BooksModule) }
+  {
+    path: 'books',
+    loadChildren: () => import('./books/books.module').then(m => m.BooksModule)
+  }
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, {
-    enableTracing: false,
-    // scrollPositionRestoration:  'enabled' // enable this, when we have proper state managment (ngrx)
-   scrollPositionRestoration:  'top' // better than nothing
-  })],
+  imports: [
+    RouterModule.forRoot(routes, {
+      enableTracing: false,
+      // scrollPositionRestoration:  'enabled' // enable this, when we have proper state managment (ngrx)
+      scrollPositionRestoration: 'top' // better than nothing
+    })
+  ],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

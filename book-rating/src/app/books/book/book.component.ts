@@ -1,4 +1,11 @@
-import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  EventEmitter,
+  Input,
+  OnInit,
+  Output
+} from '@angular/core';
 import { Book } from '../shared/book';
 
 @Component({
@@ -8,7 +15,6 @@ import { Book } from '../shared/book';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class BookComponent {
-
   @Output()
   rateDown = new EventEmitter<Book>();
 
@@ -19,10 +25,10 @@ export class BookComponent {
   book: Book;
 
   @Input()
-  isRateDownEnabled = (book: Book) => true
+  isRateDownEnabled = (book: Book) => true;
 
   @Input()
-  isRateUpEnabled = (book: Book) => true
+  isRateUpEnabled = (book: Book) => true;
 
   doRateDown(): void {
     this.rateDown.next(this.book);

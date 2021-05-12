@@ -10,7 +10,6 @@ describe('DashboardComponent', () => {
   let fixture: ComponentFixture<DashboardComponent>;
 
   beforeEach(async () => {
-
     const bookRatingMock = {
       rateUp: book => book,
       isRateDownEnabled: () => true,
@@ -28,8 +27,7 @@ describe('DashboardComponent', () => {
           useValue: bookRatingMock
         }
       ]
-    })
-    .compileComponents();
+    }).compileComponents();
   });
 
   beforeEach(() => {
@@ -39,7 +37,6 @@ describe('DashboardComponent', () => {
   });
 
   it('doRateUp() should forward all calls to BookRatingService', () => {
-
     const rs = TestBed.inject(BookRatingService);
     spyOn(rs, 'rateUp').and.callThrough();
 

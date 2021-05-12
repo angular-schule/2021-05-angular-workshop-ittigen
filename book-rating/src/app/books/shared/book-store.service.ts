@@ -8,8 +8,7 @@ import { Book } from './book';
   providedIn: 'root'
 })
 export class BookStoreService {
-
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
   getAllBooks(): Observable<Book[]> {
     return this.http.get<Book[]>(environment.apiUrl + 'books');
