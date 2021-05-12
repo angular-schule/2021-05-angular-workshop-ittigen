@@ -1,18 +1,24 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { select, Store } from '@ngrx/store';
+
 import { Book } from '../shared/book';
-import { BookRatingService } from '../shared/book-rating.service';
-import { BookStoreService } from '../shared/book-store.service';
+import { selectBookByIsbn, selectBooks, selectBooksLoading } from '../store/book.selectors';
 
 @Component({
   selector: 'br-dashboard',
   templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.scss']
-  // changeDetection: ChangeDetectionStrategy.OnPush // ACHTUNG BUG, sobald wir AJAX einsetzen
+  styleUrls: ['./dashboard.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class DashboardComponent {
-  books: Book[] = [];
 
-  constructor(public br: BookRatingService, bs: BookStoreService) {
+  loading$ = this.store.pipe(select(selectBooksLoading));
+  books$ = this.store.pipe(select(selectBooks));
+
+  // beispiel
+  book42$ = this.store.pipe(select(selectBookByIsbn, { isbn: 42 }));
+
+  constructor(private store: Store) {
     // bs.getAllBooks().subscribe(books => (this.books = books));
   }
 
