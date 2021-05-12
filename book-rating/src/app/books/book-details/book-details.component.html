@@ -10,8 +10,12 @@
 </ng-container>
 
 <ng-template #loading>
-  <h2>Warte auf das erste Buch...</h2>
+  <h3>Warte auf das erste Buch...</h3>
 </ng-template>
+
+
+<h3 *ngIf="isLoading">Bitte warten...</h3>
+
 
 <button (click)="showDetails = !showDetails">
   Toggle Details
@@ -19,7 +23,7 @@
 
 <hr>
 
-<button class="btn btn-primary ml-2"
+<button class="btn btn-primary mr-2"
   routerLink="/books/9783864907845">Go to GraphQL</button>
 
 <button class="btn btn-primary"
