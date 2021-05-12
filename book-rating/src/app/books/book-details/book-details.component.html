@@ -3,7 +3,14 @@
   {{ (book$ | async)?.title }}
 </h1>
 
-<p>{{ (book$ | async)?.description }}</p>
+<p *ngIf="showDetails">
+  <strong>Details</strong><br>
+  {{ (book$ | async)?.description }}
+</p>
+
+<button (click)="showDetails = !showDetails">
+  Toggle Details
+</button>
 
 <button class="btn btn-primary"
   routerLink="/books/9783864907845">Go to GraphQL</button>
